@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "PHZpjFj78k3WhBqb7KbGa1+cJc/kiv/m/w533mmshe1m71yzF38QAUIPmKVs0ojWCYWpeSZsLaDXEeHf8oaiYQ==",
+  "dgSpecHash": "InNHBihXcxLAPbDy2Y87EtRHHGUFryTv/QmY/sFMnxWHd77f/RI13OUTGckOsLmAg0Q2jTsHXJrkuwmw5wpETg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Usuario\\joao\\C#\\Locadao.ASP.NET\\Locadão.Domain\\Locadão.Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.4\\microsoft.codeanalysis.analyzers.3.3.4.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.codeanalysis.common\\4.8.0\\microsoft.codeanalysis.common.4.8.0.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.codeanalysis.csharp\\4.8.0\\microsoft.codeanalysis.csharp.4.8.0.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\system.collections.immutable\\7.0.0\\system.collections.immutable.7.0.0.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\system.reflection.metadata\\7.0.0\\system.reflection.metadata.7.0.0.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
