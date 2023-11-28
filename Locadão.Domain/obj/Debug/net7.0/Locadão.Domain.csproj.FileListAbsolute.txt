@@ -1,0 +1,12 @@
+C:\Users\Usuario\joao\C#\Locadao.ASP.NET\Locadão.Domain\bin\Debug\net7.0\Locadão.Domain.deps.json
+C:\Users\Usuario\joao\C#\Locadao.ASP.NET\Locadão.Domain\bin\Debug\net7.0\Locadão.Domain.dll
+C:\Users\Usuario\joao\C#\Locadao.ASP.NET\Locadão.Domain\bin\Debug\net7.0\Locadão.Domain.pdb
+C:\Users\Usuario\joao\C#\Locadao.ASP.NET\Locadão.Domain\obj\Debug\net7.0\Locadão.Domain.csproj.AssemblyReference.cache
+C:\Users\Usuario\joao\C#\Locadao.ASP.NET\Locadão.Domain\obj\Debug\net7.0\Locadão.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\joao\C#\Locadao.ASP.NET\Locadão.Domain\obj\Debug\net7.0\Locadão.Domain.AssemblyInfoInputs.cache
+C:\Users\Usuario\joao\C#\Locadao.ASP.NET\Locadão.Domain\obj\Debug\net7.0\Locadão.Domain.AssemblyInfo.cs
+C:\Users\Usuario\joao\C#\Locadao.ASP.NET\Locadão.Domain\obj\Debug\net7.0\Locadão.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\joao\C#\Locadao.ASP.NET\Locadão.Domain\obj\Debug\net7.0\Locadão.Domain.dll
+C:\Users\Usuario\joao\C#\Locadao.ASP.NET\Locadão.Domain\obj\Debug\net7.0\refint\Locadão.Domain.dll
+C:\Users\Usuario\joao\C#\Locadao.ASP.NET\Locadão.Domain\obj\Debug\net7.0\Locadão.Domain.pdb
+C:\Users\Usuario\joao\C#\Locadao.ASP.NET\Locadão.Domain\obj\Debug\net7.0\ref\Locadão.Domain.dll
