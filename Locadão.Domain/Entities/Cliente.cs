@@ -1,32 +1,41 @@
-﻿using System;
+﻿using Locadão.Domain.entitys;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Locadão.Domain.entitys;
-
-public class Cliente
+namespace Locadão.Domain.Entities
 {
-    public int Id { get; set; }
-    public string Nome { get; set; }
-    public string Cpf { get; set; }
-    public DateTime DataNascimento { get; set; }
-    public string Endereco { get; set; }
-    public bool Cnh { get; set; }
-
-    public List<Veiculo> Veiculos { get; set; }
-
-    // Construtor
-    public Cliente(string nome, string cpf, DateTime dataNascimento, string endereco, bool cnh)
+    public class Cliente
     {
-        Nome = nome;
-        Cpf = cpf;
-        DataNascimento = dataNascimento;
-        Endereco = endereco;
-        Cnh = cnh;
+        public int Id { get; private set; }
+        private string _nome;
+
+        public string Nome
+        {
+            get => _nome;
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                    throw new ArgumentException("O nome não pode ser vazio ou nulo.");
+                _nome = value;
+            }
+        }
+
+        public string Cpf { get; set; }
+        public DateTime DataNascimento { get; set; }
+        public string Endereco { get; set; }
+        public bool Cnh { get; set; }
+        public List<Veiculo> Veiculos { get; private set; }
+
+        public Cliente(string nome, string cpf, DateTime dataNascimento, string endereco, bool cnh)
+        {
+            _nome = nome ?? throw new ArgumentException("O nome não pode ser nulo.");
+            Cpf = cpf;
+            DataNascimento = dataNascimento;
+            Endereco = endereco;
+            Cnh = cnh;
+            Veiculos = new List<Veiculo>();
+        }
+
+        // Métodos de validação ou regras de negócio...
     }
-
-    // Métodos de validação ou regras de negócio
 }
-

@@ -1,6 +1,9 @@
 ﻿using Locadão.Application.dtos;
-using Locadão.Domain.entitys;
+using Locadão.Domain.Entities;
 using Locadão.Infrastructure.Repositories;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Numerics;
+using System.Text.RegularExpressions;
 
 namespace Locadão.Application.Services;
 
@@ -20,7 +23,28 @@ namespace Locadão.Application.Services;
 
         return new ClienteDTO
         {
-            // Mapear as propriedades do cliente para ClienteDTO
+            Nome = cliente.Nome,
+            Cpf = cliente.Cpf,
+            DataNascimento = cliente.DataNascimento,
+            Endereco = cliente.Endereco,
+            Cnh = cliente.Cnh,
+            Veiculos = cliente.Veiculos.Select(v => new VeiculoDTO
+            {
+                Marca = v.Marca,
+                Modelo = v.Modelo,
+                Placa = v.Placa,
+                Ano = v.Ano,
+                PrecoDiaria = v.PrecoDiaria,
+                Alugado = v.Alugado,
+                Locacoes = v.Locacoes.Select(l => new LocacaoDTO
+                {
+                    Id = l.Id,
+                    VeiculoId = l.VeiculoId,
+                    DataInicio = l.DataInicio,
+                    DataFim = l.DataFim,
+                    ValorTotal = l.ValorTotal
+                }).ToList()
+            }).ToList()
         };
     }
 
@@ -29,7 +53,28 @@ namespace Locadão.Application.Services;
         var clientes = _clienteRepository.GetAll();
         return clientes.Select(c => new ClienteDTO
         {
-            // Mapear as propriedades de cada cliente para ClienteDTO
+            Nome = c.Nome,
+            Cpf = c.Cpf,
+            DataNascimento = c.DataNascimento,
+            Endereco = c.Endereco,
+            Cnh = c.Cnh,
+            Veiculos = c.Veiculos.Select(v => new VeiculoDTO
+            {
+                Marca = v.Marca,
+                Modelo = v.Modelo,
+                Placa = v.Placa,
+                Ano = v.Ano,
+                PrecoDiaria = v.PrecoDiaria,
+                Alugado = v.Alugado,
+                Locacoes = v.Locacoes.Select(l => new LocacaoDTO
+                {
+                    Id = l.Id,
+                    VeiculoId = l.VeiculoId,
+                    DataInicio = l.DataInicio,
+                    DataFim = l.DataFim,
+                    ValorTotal = l.ValorTotal
+                }).ToList()
+            }).ToList()
         }).ToList();
     }
 

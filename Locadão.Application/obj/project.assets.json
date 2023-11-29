@@ -570,7 +570,6 @@
         "dependencies": {
           "Locadão.Domain": "1.0.0",
           "Microsoft.AspNetCore.OpenApi": "7.0.9",
-          "Microsoft.CodeAnalysis.CSharp": "4.8.0",
           "Microsoft.EntityFrameworkCore": "7.0.10",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.0",
           "Swashbuckle.AspNetCore": "6.5.0"

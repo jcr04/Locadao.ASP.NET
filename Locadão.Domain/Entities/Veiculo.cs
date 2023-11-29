@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Locadão.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,18 +9,18 @@ namespace Locadão.Domain.entitys;
 
 public class Veiculo
 {
-    public int Id { get; set; }
-    public string Marca { get; set; }
-    public string Modelo { get; set; }
-    public string Placa { get; set; }
-    public int Ano { get; set; }
-    public double PrecoDiaria { get; set; }
-    public bool Alugado { get; set; }
+    public required int Id { get; set; }
+    public required string Marca { get; set; }
+    public required string Modelo { get; set; }
+    public required string Placa { get; set; }
+    public required int Ano { get; set; }
+    public required double PrecoDiaria { get; set; }
+    public required bool Alugado { get; set; }
 
-    public int ClienteId { get; set; }
-    public Cliente Cliente { get; set; }
+    public required int ClienteId { get; set; }
+    public required Cliente Cliente { get; set; }
 
-    public List<Locacao> Locacoes { get; set; }
+    public required List<Locacao> Locacoes { get; set; }
 
     // Construtor
     public Veiculo(string marca, string modelo, string placa, int ano, double precoDiaria)
