@@ -10,5 +10,6 @@ public class VeiculoDTO
     public double PrecoDiaria { get; set; }
     public bool Alugado { get; set; }
     public List<LocacaoDTO>? Locacoes { get; set; }
+    public int ClienteId { get; internal set; }
 }
 

@@ -1,5 +1,4 @@
 ﻿using Locadão.Domain.Entities;
-using Locadão.Domain.entitys;
 using Microsoft.EntityFrameworkCore;
 
 namespace Locadão.Infrastructure.configs;

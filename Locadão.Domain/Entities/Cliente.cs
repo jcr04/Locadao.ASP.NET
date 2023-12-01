@@ -1,4 +1,4 @@
-﻿using Locadão.Domain.entitys;
+﻿using Locadão.Domain.Entities;
 using System;
 using System.Collections.Generic;
 
