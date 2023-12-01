@@ -1,7 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Configuration;
+using Microsoft.OpenApi.Models;
 using Locadão.Infrastructure.configs;
+using Locadão.Application.Services;
+using Locadão.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,11 +10,39 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<LocadaoContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("LocadaoDatabase")));
 
-// Outras configurações de serviços, como adicionar controllers, etc.
-// Exemplo: builder.Services.AddControllers();
+// Adicionar configuração do Swagger
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Locadão API", Version = "v1" });
+});
+
+// Adicionar serviços do seu domínio
+// Exemplo:
+builder.Services.AddScoped<IClienteService, ClienteService>();
+builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+
+// Adicionar controllers
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
-// Configurações do app, como app.UseAuthorization(), app.UseRouting(), etc.
+// Configurar middlewares
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+    // Ativar Swagger apenas em desenvolvimento
+    app.UseSwagger();
+    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Locadão API V1"));
+}
+
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
 
 app.Run();
