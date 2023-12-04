@@ -23,28 +23,13 @@ namespace Locadão.Application.Services;
 
         return new ClienteDTO
         {
+            Id = cliente.Id,
             Nome = cliente.Nome,
             Cpf = cliente.Cpf,
             DataNascimento = cliente.DataNascimento,
             Endereco = cliente.Endereco,
-            Cnh = cliente.Cnh,
-            Veiculos = cliente.Veiculos.Select(v => new VeiculoDTO
-            {
-                Marca = v.Marca,
-                Modelo = v.Modelo,
-                Placa = v.Placa,
-                Ano = v.Ano,
-                PrecoDiaria = v.PrecoDiaria,
-                Alugado = v.Alugado,
-                Locacoes = v.Locacoes.Select(l => new LocacaoDTO
-                {
-                    Id = l.Id,
-                    VeiculoId = l.VeiculoId,
-                    DataInicio = l.DataInicio,
-                    DataFim = l.DataFim,
-                    ValorTotal = l.ValorTotal
-                }).ToList()
-            }).ToList()
+            Cnh = cliente.Cnh
+            // Veiculos não incluídos
         };
     }
 
@@ -53,28 +38,13 @@ namespace Locadão.Application.Services;
         var clientes = _clienteRepository.GetAll();
         return clientes.Select(c => new ClienteDTO
         {
+            Id = c.Id,
             Nome = c.Nome,
             Cpf = c.Cpf,
             DataNascimento = c.DataNascimento,
             Endereco = c.Endereco,
-            Cnh = c.Cnh,
-            Veiculos = c.Veiculos.Select(v => new VeiculoDTO
-            {
-                Marca = v.Marca,
-                Modelo = v.Modelo,
-                Placa = v.Placa,
-                Ano = v.Ano,
-                PrecoDiaria = v.PrecoDiaria,
-                Alugado = v.Alugado,
-                Locacoes = v.Locacoes.Select(l => new LocacaoDTO
-                {
-                    Id = l.Id,
-                    VeiculoId = l.VeiculoId,
-                    DataInicio = l.DataInicio,
-                    DataFim = l.DataFim,
-                    ValorTotal = l.ValorTotal
-                }).ToList()
-            }).ToList()
+            Cnh = c.Cnh
+            // Veiculos não incluídos
         }).ToList();
     }
 
@@ -96,9 +66,6 @@ namespace Locadão.Application.Services;
     {
         var cliente = _clienteRepository.GetById(clienteDto.Id);
         if (cliente == null) return;
-
-        // Atualizar as propriedades do cliente
-        // cliente.Nome = clienteDto.Nome, etc.
 
         _clienteRepository.Update(cliente);
     }
