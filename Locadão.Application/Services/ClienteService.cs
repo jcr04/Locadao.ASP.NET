@@ -23,13 +23,28 @@ namespace Locadão.Application.Services;
 
         return new ClienteDTO
         {
-            Id = cliente.Id,
             Nome = cliente.Nome,
             Cpf = cliente.Cpf,
             DataNascimento = cliente.DataNascimento,
             Endereco = cliente.Endereco,
-            Cnh = cliente.Cnh
-            // Veiculos não incluídos
+            Cnh = cliente.Cnh,
+            Veiculos = cliente.Veiculos.Select(v => new VeiculoDTO
+            {
+                Marca = v.Marca,
+                Modelo = v.Modelo,
+                Placa = v.Placa,
+                Ano = v.Ano,
+                PrecoDiaria = v.PrecoDiaria,
+                Alugado = v.Alugado,
+                Locacoes = v.Locacoes.Select(l => new LocacaoDTO
+                {
+                    Id = l.Id,
+                    VeiculoId = l.VeiculoId,
+                    DataInicio = l.DataInicio,
+                    DataFim = l.DataFim,
+                    ValorTotal = l.ValorTotal
+                }).ToList()
+            }).ToList()
         };
     }
 
@@ -38,13 +53,28 @@ namespace Locadão.Application.Services;
         var clientes = _clienteRepository.GetAll();
         return clientes.Select(c => new ClienteDTO
         {
-            Id = c.Id,
             Nome = c.Nome,
             Cpf = c.Cpf,
             DataNascimento = c.DataNascimento,
             Endereco = c.Endereco,
-            Cnh = c.Cnh
-            // Veiculos não incluídos
+            Cnh = c.Cnh,
+            Veiculos = c.Veiculos.Select(v => new VeiculoDTO
+            {
+                Marca = v.Marca,
+                Modelo = v.Modelo,
+                Placa = v.Placa,
+                Ano = v.Ano,
+                PrecoDiaria = v.PrecoDiaria,
+                Alugado = v.Alugado,
+                Locacoes = v.Locacoes.Select(l => new LocacaoDTO
+                {
+                    Id = l.Id,
+                    VeiculoId = l.VeiculoId,
+                    DataInicio = l.DataInicio,
+                    DataFim = l.DataFim,
+                    ValorTotal = l.ValorTotal
+                }).ToList()
+            }).ToList()
         }).ToList();
     }
 
